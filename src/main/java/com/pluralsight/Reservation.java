@@ -57,6 +57,10 @@ public class Reservation {
         }
     }
     public double getPrice() {
-        throw new UnsupportedOperationException("Not implememted yet");
+     double total = getPrice()* numberOfNights;
+        if (isWeekend) {
+            total = total*1.10;
+        }
+        return total;
     }
 }
