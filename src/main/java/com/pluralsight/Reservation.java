@@ -1,34 +1,34 @@
 package com.pluralsight;
 
 public class Reservation {
-   String RoomType;
-   double getPrice;
-    int NumberOfNights;
+    String roomType;
+    double Price;
+    int numberOfNights;
     boolean isWeekend;
-    boolean ReservationTotal;
+    boolean reservationTotal;
 
     public String getRoomType() {
-        return RoomType;
+        return roomType;
     }
 
     public void setRoomType(String roomType) {
-        RoomType = roomType;
+        this.roomType = roomType;
     }
 
-    public double getGetPrice() {
-        return getPrice;
+    public double Price() {
+        return Price;
     }
 
-    public void setGetPrice(double getPrice) {
-        this.getPrice = getPrice;
+    public void setPrice(double price) {
+        this.Price = price;
     }
 
     public int getNumberOfNights() {
-        return NumberOfNights;
+        return numberOfNights;
     }
 
     public void setNumberOfNights(int numberOfNights) {
-        NumberOfNights = numberOfNights;
+        this.numberOfNights = numberOfNights;
     }
 
     public boolean isWeekend() {
@@ -40,10 +40,23 @@ public class Reservation {
     }
 
     public boolean isReservationTotal() {
-        return ReservationTotal;
+        return reservationTotal;
     }
 
     public void setReservationTotal(boolean reservationTotal) {
-        ReservationTotal = reservationTotal;
+        this.reservationTotal = reservationTotal;
+    }
+    /// derived methods
+    public double getReservationTotal() {
+        if (this.roomType.equalsIgnoreCase("King")) {
+            return 139;
+        } else if (this.roomType.equalsIgnoreCase("Double")) {
+            return 124;
+        } else {
+            throw new IllegalArgumentException("Invalid room type"+ this.roomType);
+        }
+    }
+    public double getPrice() {
+        throw new UnsupportedOperationException("Not implememted yet");
     }
 }
