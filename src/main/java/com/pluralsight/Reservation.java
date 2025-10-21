@@ -1,11 +1,15 @@
 package com.pluralsight;
 
 public class Reservation {
-    String roomType;
-    double Price;
-    int numberOfNights;
-    boolean isWeekend;
-    boolean reservationTotal;
+    private String roomType;
+    private int numberOfNights;
+    private  boolean isWeekend;
+
+    public Reservation(String roomType, int numberOfNights, boolean isWeekend) {
+        this.roomType = roomType;
+        this.numberOfNights = numberOfNights;
+        this.isWeekend = isWeekend;
+    }
 
     public String getRoomType() {
         return roomType;
@@ -13,14 +17,6 @@ public class Reservation {
 
     public void setRoomType(String roomType) {
         this.roomType = roomType;
-    }
-
-    public double Price() {
-        return Price;
-    }
-
-    public void setPrice(double price) {
-        this.Price = price;
     }
 
     public int getNumberOfNights() {
@@ -39,15 +35,8 @@ public class Reservation {
         isWeekend = weekend;
     }
 
-    public boolean isReservationTotal() {
-        return reservationTotal;
-    }
-
-    public void setReservationTotal(boolean reservationTotal) {
-        this.reservationTotal = reservationTotal;
-    }
     /// derived methods
-    public double getReservationTotal() {
+    public double getPrice () {
         if (this.roomType.equalsIgnoreCase("King")) {
             return 139;
         } else if (this.roomType.equalsIgnoreCase("Double")) {
@@ -56,8 +45,8 @@ public class Reservation {
             throw new IllegalArgumentException("Invalid room type"+ this.roomType);
         }
     }
-    public double getPrice() {
-     double total = getPrice()* numberOfNights;
+    public double getReservationTotal() {
+     double total = getPrice() * this.numberOfNights;
         if (isWeekend) {
             total = total*1.10;
         }
