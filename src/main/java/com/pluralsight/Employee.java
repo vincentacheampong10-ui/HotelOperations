@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 public class Employee {
     private int employeeId;
     private String name;
@@ -31,6 +34,16 @@ public class Employee {
         } else {
             return 0;
         }
+    }
+
+    public LocalTime punchIn() {
+        LocalTime punchIn = LocalTime.now().withNano(0);
+        return punchIn;
+    }
+
+    public LocalTime punchOut() {
+        LocalTime punchOut = LocalTime.now().withNano(0);
+        return punchOut;
     }
 }
 
